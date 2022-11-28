@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#borderPaneDragger" onMousePressed="#borderPanePressed" prefHeight="650.0" prefWidth="1034.0" style="-fx-background-radius: 20;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AlocasiaController">
+   <children>
+      <Pane fx:id="pnlStatus" layoutY="31.0" prefHeight="164.0" prefWidth="1000.0" style="-fx-background-color: #d6b3d3;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lbStatus" layoutX="322.0" layoutY="51.0" text="Studenti" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbStatusMin" layoutX="322.0" layoutY="44.0" text="home/studenti" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <StackPane layoutX="290.0" layoutY="201.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="201.0">
+         <children>
+            <GridPane fx:id="pnVendite" layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="684.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="354.4000183105469" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+                     <children>
+                        <FontAwesomeIconView fx:id="btSearch2" fill="#719dcc" glyphName="SEARCH" size="17" styleClass="research" />
+                        <TextField fx:id="filterFieldVen" onMouseClicked="#filterFieldTableVenditeOnAction" prefHeight="27.0" prefWidth="236.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="btAddVendita" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btAddVenditaOnAction" prefHeight="27.0" prefWidth="162.0" styleClass="addButton" stylesheets="@Style.css" text="Aggiungi Vendita" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="EUR" size="18" text="" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btAddPacchettoStudente" graphicTextGap="10.0" layoutX="283.0" layoutY="34.0" mnemonicParsing="false" onAction="#btAddPacchettoStudenteOnAction" prefHeight="27.0" prefWidth="162.0" styleClass="addButton" stylesheets="@Style.css" text="Pacchetto Studente" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="EUR" size="18" text="" />
+                           </graphic>
+                        </Button>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btRefreshVen" layoutX="5.0" layoutY="21.0" mnemonicParsing="false" onAction="#btRefreshVenOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#c6c6c6" glyphName="SEARCH" size="25" styleClass="refresh" text="" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btDeleteVen" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#btDeleteVenOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="TRASH" size="25" styleClass="trash" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="venditaTableView" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="venditeTable-view" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="numVendita" minWidth="70.0" prefWidth="70.0" text="Num" />
+                              <TableColumn fx:id="dataVendita" minWidth="85.0" prefWidth="85.0" text="Data" />
+                              <TableColumn fx:id="allievoVendita" minWidth="100.0" prefWidth="158.40008544921875" text="Allievo" />
+                              <TableColumn fx:id="oreAcquistateVendita" minWidth="100.0" prefWidth="100.0" text="Ore Acquistate" />
+                              <TableColumn fx:id="venditoreVendita" minWidth="100.0" prefWidth="100.0" text="Venditore" />
+                              <TableColumn fx:id="pacchettoVendita" minWidth="100.0" prefWidth="100.0" text="Pacchetto" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnPacchetti" layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="684.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="354.4000183105469" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+                     <children>
+                        <FontAwesomeIconView fx:id="btSearch" fill="#719dcc" glyphName="SEARCH" size="17" styleClass="research" />
+                        <TextField fx:id="filterFieldPac" onMouseClicked="#filterFieldPacchettoOnAction" prefHeight="27.0" prefWidth="236.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="btAddPacchetto" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btAddPacchettoOnAction" prefHeight="27.0" prefWidth="162.0" styleClass="addButton" stylesheets="@Style.css" text="Aggiungi Pacchetto" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="18" text="" />
+                           </graphic>
+                        </Button>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btRefreshPac" layoutX="5.0" layoutY="21.0" mnemonicParsing="false" onAction="#btRefreshPacOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#c6c6c6" glyphName="SEARCH" size="25" styleClass="refresh" text="" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btDeletePac" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#btDeletePacOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="TRASH" size="25" styleClass="trash" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="pacchettoTableView" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="pacchettiTable-view" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="prezzoPac" minWidth="100.0" prefWidth="100.0" text="Prezzo" />
+                              <TableColumn fx:id="tipoPac" minWidth="200.0" prefWidth="200.0" text="Tipo" />
+                              <TableColumn fx:id="percTutorPac" minWidth="105.0" prefWidth="105.0" text="al Tutor" />
+                              <TableColumn fx:id="percVenditorePac" minWidth="156.0" prefWidth="156.0" text="al Venditore" />
+                              <TableColumn fx:id="bonusPac" minWidth="115.0" prefWidth="115.0" text="Bonus 1€" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnStudenti" layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="684.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="354.4000183105469" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+                     <children>
+                        <FontAwesomeIconView fx:id="btSearch1" fill="#719dcc" glyphName="SEARCH" size="17" styleClass="research" />
+                        <TextField fx:id="filterFieldStu" onMouseClicked="#filterFieldTableStudentiOnAction" prefHeight="27.0" prefWidth="236.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="btAddStudente" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btAddStudenteOnAction" prefHeight="27.0" prefWidth="162.0" styleClass="addButton" stylesheets="@Style.css" text="Aggiungi Studente" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="18" text="" />
+                           </graphic>
+                        </Button>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btRefreshStu" layoutX="5.0" layoutY="21.0" mnemonicParsing="false" onAction="#btRefreshStuOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#c6c6c6" glyphName="SEARCH" size="25" styleClass="refresh" text="" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btDeleteStu" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#btDeleteStuOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="TRASH" size="25" styleClass="trash" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="studenteTableView" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="studentiTable-view" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="cognomeStudente" minWidth="90.0" prefWidth="90.0" text="Cognome" />
+                              <TableColumn fx:id="nomeStudente" minWidth="60.0" prefWidth="60.0" text="Nome" />
+                              <TableColumn fx:id="annoCorsoStudente" minWidth="60.0" prefWidth="60.0" text="Anno Corso" />
+                              <TableColumn fx:id="pacchettoStudente" minWidth="90.0" prefWidth="90.0" text="Pacchetto" />
+                              <TableColumn fx:id="oreAcquistateStudente" minWidth="100.0" prefWidth="100.0" text="Ore Acquistate" />
+                              <TableColumn fx:id="oreFatteStudente" minWidth="73.0" prefWidth="73.0" text="Ore Fatte" />
+                              <TableColumn fx:id="oreDisponibiliStudente" minWidth="100.0" prefWidth="100.0" text="Ore Disponibli" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnLezioni" layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="684.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="354.4000183105469" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+                     <children>
+                        <FontAwesomeIconView fx:id="btSearch3" fill="#719dcc" glyphName="SEARCH" size="17" styleClass="research" />
+                        <TextField fx:id="filterFieldLez" onMouseClicked="#filterFieldTableStudenteOnAction" prefHeight="27.0" prefWidth="236.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="btAddLezione" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btAddLezioneOnAction" prefHeight="27.0" prefWidth="162.0" styleClass="addButton" stylesheets="@Style.css" text="Aggiungi Lezione" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="18" text="" />
+                           </graphic>
+                        </Button>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btRefreshLez" layoutX="5.0" layoutY="21.0" mnemonicParsing="false" onAction="#btRefreshLezOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#c6c6c6" glyphName="SEARCH" size="25" styleClass="refresh" text="" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btDeleteLez" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#btDeleteLezOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="TRASH" size="25" styleClass="trash" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="lezioneTableView" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="lezioniTable-view" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="dataLezione" minWidth="100.0" prefWidth="100.0" text="Data" />
+                              <TableColumn fx:id="meseLezione" minWidth="100.0" prefWidth="100.0" text="Mese" />
+                              <TableColumn fx:id="allievoLezione" minWidth="100.0" prefWidth="100.0" text="Allievo" />
+                              <TableColumn fx:id="oreFatteLezione" minWidth="100.0" prefWidth="100.0" text="Ore Fatte" />
+                              <TableColumn fx:id="docenteLezione" minWidth="100.0" prefWidth="100.0" text="Docente" />
+                              <TableColumn fx:id="pacchettoLezione" minWidth="100.0" prefWidth="100.0" text="Pacchetto" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnDipendenti" layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="684.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="354.4000183105469" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+                     <children>
+                        <FontAwesomeIconView fx:id="btSearch31" fill="#719dcc" glyphName="SEARCH" size="17" styleClass="research" />
+                        <TextField fx:id="filterFieldDip" onMouseClicked="#filterFieldTableDipendentiOnAction" prefHeight="27.0" prefWidth="236.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Pane prefHeight="75.0" prefWidth="48.0">
+                           <children>
+                              <Button fx:id="btRefreshDip" layoutX="5.0" layoutY="21.0" mnemonicParsing="false" onAction="#btRefreshDipOnAction" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#c6c6c6" glyphName="SEARCH" size="25" styleClass="refresh" text="" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" GridPane.rowIndex="1">
+                     <children>
+                        <TableView fx:id="dipendenteTableView" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="dipendentiTable-view" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="cognomeDipendente" minWidth="100.0" prefWidth="100.0" text="Cognome" />
+                              <TableColumn fx:id="tutorDipendente" minWidth="80.0" text="Tutor" />
+                              <TableColumn fx:id="venditoreDipendente" minWidth="100.0" prefWidth="100.0" text="Venditore" />
+                              <TableColumn fx:id="superUtenteDipendente" minWidth="130.0" prefWidth="130.0" text="Super Utente" />
+                              <TableColumn fx:id="oreFatteDipendente" minWidth="120.0" prefWidth="120.0" text="Ore Fatte" />
+                              <TableColumn fx:id="oreVenduteDipendente" minWidth="140.0" prefWidth="140.0" text="Ore Vendute" />
+                              <TableColumn fx:id="importoOreFatteDipendente" minWidth="180.0" prefWidth="180.0" text="Importo Ore Fatte" />
+                              <TableColumn fx:id="importoOreVenduteDipendente" minWidth="200.0" prefWidth="200.0" text="Importo Ore Vendute" />
+                              <TableColumn fx:id="importoTotDipendente" minWidth="140.0" prefWidth="140.0" text="Importo Totale" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnVuoto" layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="684.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="354.4000183105469" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4f4f4;" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4f4f4;" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+      <VBox fx:id="vbox" prefHeight="550.0" prefWidth="270.0" style="-fx-background-color: #a3cced; -fx-background-radius: 20 0 0 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="142.0" prefWidth="270.0">
+               <children>
+                  <Pane fx:id="logoPane" prefHeight="91.0" prefWidth="270.0" style="-fx-background-color: #719dcc; -fx-background-radius: 20 0 0 0;">
+                     <children>
+                        <ImageView fx:id="logoWhiteImageView" fitHeight="50.0" fitWidth="227.0" layoutX="22.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../java/Aloimg/logoWhite.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Button fx:id="btStudenti" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="50.0" prefWidth="270.0" styleClass="btAlo" text="Studenti" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" size="17" text="" wrappingWidth="21.85714340209961" />
+               </graphic>
+            </Button>
+            <Button fx:id="btLezioni" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="50.0" prefWidth="270.0" styleClass="btAlo" text="Lezioni" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BOOK" size="17" wrappingWidth="21.85714340209961" />
+               </graphic>
+            </Button>
+            <Button fx:id="btVendite" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="50.0" prefWidth="270.0" styleClass="btAlo" text="Vendite" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" size="17" wrappingWidth="21.85714340209961" />
+               </graphic>
+            </Button>
+            <Button fx:id="btPacchetti" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="50.0" prefWidth="270.0" styleClass="btAlo" text="Pacchetti" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BOOK" size="17" text="" wrappingWidth="21.85714340209961" />
+               </graphic>
+            </Button>
+            <Button fx:id="btDipendenti" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="50.0" prefWidth="270.0" styleClass="btAlo" text="Dipendenti" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" size="17" text="" wrappingWidth="21.85714340209961" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="635.0" layoutY="-1.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btClose" layoutX="170.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#clickedClose" prefHeight="16.0" prefWidth="16.0" styleClass="redButton" stylesheets="@Style.css" textFill="WHITE">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button fx:id="btMaxim" layoutX="140.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#clickedMaxim" prefHeight="16.0" prefWidth="16.0" styleClass="greenButton" stylesheets="@Style.css" textFill="WHITE">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button fx:id="btMinus" layoutX="110.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#clickedMinus" prefHeight="16.0" prefWidth="16.0" styleClass="yellowButton" stylesheets="@Style.css" textFill="WHITE">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

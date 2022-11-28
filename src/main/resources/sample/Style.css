@@ -1,0 +1,331 @@
+/*BOTTONI LOGIN*/
+.loButton{
+    -fx-background-color: #719dcc;
+}
+
+.loButton:hover{
+    -fx-background-color: #a3cced;
+}
+
+.loButton:pressed{
+    -fx-background-color:#97bddb;
+}
+
+/*BOTTONI START*/
+.redButton{
+    -fx-background-color: #e12120;
+    -fx-background-radius: 20;
+}
+.redButton:hover{
+    -fx-background-color: #b91a19;
+}
+.redButton:pressed{
+    -fx-background-color: #fc2928;
+}
+.yellowButton{
+    -fx-background-color: #fcd116;
+    -fx-background-radius: 20;
+}
+
+.yellowButton:hover{
+    -fx-background-color: #e9cb00;
+}
+.yellowButton:pressed{
+    -fx-background-color: #ffdf01;
+}
+.greenButton{
+    -fx-background-color: #51ac65;
+    -fx-background-radius: 20;
+}
+
+.greenButton:hover{
+    -fx-background-color: #428c52;
+}
+.greenButton:pressed{
+    -fx-background-color: #65d67e;
+}
+
+
+/*SCRITTA LOGIN*/
+.changeLogButton{
+    -fx-text-fill: #719dcc;
+    -fx-background-color: transparent;
+}
+
+.changeLogButton:hover{
+    -fx-text-fill: #a3cced;
+}
+
+.changeLogButton:pressed{
+    -fx-text-fill: #97bddb;
+}
+
+/*BOTTONI REGISTRAZIONE*/
+.registerButton{
+    -fx-background-color: #ef8980;
+}
+
+.registerButton:hover{
+    -fx-background-color: #cf756d;
+}
+.registerButton:pressed{
+    -fx-background-color: #e08279;
+}
+
+
+/*BOTTONI HOME*/
+.btAlo{
+    -fx-background-color: #a3cced;
+}
+
+.btAlo:hover{
+    -fx-background-color: #719dcc;
+}
+
+.btAlo:pressed{
+    -fx-background-color:#7DBBD9;
+}
+
+.btAlo:focused{
+    -fx-background-color:#7DBBD9;
+    -fx-border-color: #fff;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+/*BOTTONE ADD*/
+.addButton{
+    -fx-background-color: #719dcc;
+}
+
+.addButton:hover{
+    -fx-background-color: #7DBBD9;
+}
+
+.addButton:pressed{
+    -fx-background-color:#a3cced;
+}
+
+/*REFRESH BUTTON*/
+.refresh{
+    -fx-fill: #c6c6c6;
+}
+.refresh:hover{
+    -fx-fill: #8f8f8f;
+}
+.refresh:pressed{
+    -fx-background-color: #b0b0b0;
+}
+/*TRASH BUTTON*/
+.trash{
+    -fx-fill: #c6c6c6;
+}
+.trash:hover{
+    -fx-fill: #fc2928;
+}
+.trash:pressed{
+    -fx-background-color: #fc4847;
+}
+
+
+/*RESEARCH BUTTON*/
+.research{
+    -fx-fill: #c6c6c6;
+}
+.research:hover{
+    -fx-fill: #7DBBD9;
+}
+.research:pressed{
+    -fx-background-color: #a3cced;
+}
+
+
+
+/*TABELLA STUDENTI*/
+.studentiTable-view {
+    -fx-base: #d6b3d3;
+    -fx-control-inner-background:  white;
+    -fx-background-color:  #d6b3d3;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.studentiTable-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.studentiTable-view .column-header, .studentiTable-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.studentiTable-view .column-header .label {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.studentiTable-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*TABELLA LEZIONI*/
+.lezioniTable-view {
+    -fx-base: #97d6f5;
+    -fx-control-inner-background:  white;
+    -fx-background-color:  #97d6f5;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.lezioniTable-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.lezioniTable-view .column-header, .studentiTable-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.lezioniTable-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.lezioniTable-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*TABELLA VENDITE*/
+.venditeTable-view {
+    -fx-base: #c0e4d6;
+    -fx-control-inner-background:  white;
+    -fx-background-color:  #c0e4d6;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.venditeTable-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.venditeTable-view .column-header, .studentiTable-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.venditeTable-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.venditeTable-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*TABELLA PACCHETTI*/
+.pacchettiTable-view {
+    -fx-base: #D9EC89;
+    -fx-control-inner-background:  white;
+    -fx-background-color:  #D9EC89;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.pacchettiTable-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.pacchettiTable-view .column-header, .studentiTable-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.pacchettiTable-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.pacchettiTable-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*TABELLA DIPENDENTI*/
+.dipendentiTable-view {
+    -fx-base: #ffd3ae;
+    -fx-control-inner-background:  white;
+    -fx-background-color:  #ffd3ae;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.dipendentiTable-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.dipendentiTable-view .column-header, .studentiTable-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.dipendentiTable-view .column-header .label {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.dipendentiTable-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="borderPane" onMouseDragged="#borderPaneDragger" onMousePressed="#borderPanePressed" prefHeight="308.0" prefWidth="640.0" style="-fx-background-radius: 20; -fx-background-color: #e4f5ee;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddPacchettoStudenteController">
+    <children>
+        <Pane layoutX="200.0" layoutY="32.0" prefHeight="93.0" prefWidth="570.0" style="-fx-background-color: #c0e4d6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <children>
+                <Pane layoutX="-42.0" layoutY="-28.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 200; -fx-background-color: #e4f5ee;">
+                    <children>
+                        <ImageView fx:id="addPacImageView" fitHeight="70.0" fitWidth="70.0" layoutX="56.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../java/Aloimg/addPacchettoStudente.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+                <Label alignment="CENTER" layoutX="127.0" layoutY="13.0" prefHeight="70.0" prefWidth="506.0" text="Aggiungere Pacchetto allo Studente" textFill="WHITE">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Button fx:id="btClose" layoutX="610.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#clickedClose" prefHeight="16.0" prefWidth="16.0" styleClass="redButton" stylesheets="@Style.css" textFill="WHITE">
+            <font>
+                <Font size="7.0" />
+            </font>
+        </Button>
+        <Button fx:id="btCancella" layoutX="158.0" layoutY="256.0" mnemonicParsing="false" onAction="#btCancellaOnAction" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: #c0e4d6;" styleClass="registerButton" text="Cancella" textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="btSalva" layoutX="337.0" layoutY="256.0" mnemonicParsing="false" onAction="#btSalvaOnAction" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: #c0e4d6;" styleClass="registerButton" text="Salva" textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Button>
+        <Label layoutX="69.0" layoutY="170.0" prefHeight="20.0" prefWidth="46.0" text="Allievo">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="lbMessage" alignment="CENTER" layoutX="25.0" layoutY="221.0" prefHeight="19.0" prefWidth="590.0" textFill="#ff3224">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+      <ChoiceBox fx:id="cbAllievo" layoutX="118.0" layoutY="167.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="350.0" layoutY="170.0" prefHeight="20.0" prefWidth="70.0" text="Pacchetto">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="cbPacchetto" layoutX="421.0" layoutY="167.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 20;" />
+    </children>
+</AnchorPane>
